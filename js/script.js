@@ -48,7 +48,7 @@ function addPagination(list) {
    // create a variable to calculate the number of pages needed
    let numOfPages = Math.ceil(list.length / 9);
    // select the element with a class of `link-list` and assign it to a variable
-   let linkList = document.querySelector('.link-list');
+   let linkList = document.querySelector(".link-list");
    // set the innerHTML property of the variable you just created to an empty string
    linkList.innerHTML = "";
    // loop over the number of pages needed
@@ -60,26 +60,77 @@ function addPagination(list) {
             </li>
       `;
       linkList.insertAdjacentHTML("beforeend", button); // insert the above elements
-   };
+   }
    // give the first pagination button a class of "active"
-   document.querySelector('button').classList.add('active');
+   document.querySelector("button").classList.add("active");
 
    // create an event listener on the `link-list` element
-   linkList.addEventListener('click', function (e) {
-      //if click is on a button 
-      if (e.target.getAttribute('type') === 'button') {
+   linkList.addEventListener("click", function (e) {
+      //if click is on a button
+      if (e.target.getAttribute("type") === "button") {
          //removes active class and sets it to empty string
-         document.querySelector('.active').classList.remove('active');
+         document.querySelector(".active").classList.remove("active");
          //adds active class to button that was clicked
-         e.target.classList.add('active');
+         e.target.classList.add("active");
          //get number from button clicked
          let text = e.target.textContent;
-         //display the correct page that user has clicked on 
+         //display the correct page that user has clicked on
          showPage(data, text);
-      }  
-   }) 
+      }
+   });
 }
 
 // Call functions
 showPage(data, 1);
-addPagination(data)
+addPagination(data);
+
+/***
+ ******Inserting search bar******
+ ***/
+let searchDiv = document.createElement('div');
+searchDiv.innerHTML = `
+      <label for="search" class="student-search">
+      <span>Search by name</span>
+      <input id="search" placeholder="Search by name...">
+      <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
+      </label>`;
+
+document.querySelector("header").appendChild(searchDiv);
+
+
+/***
+ ******Working on getting search to work******
+
+const searchInput = document.querySelector('#search')
+let students = [data];
+   console.log(students);
+
+searchInput.addEventListener("keyup", (e) => {
+   
+   let searchString = e.target.value.toLowerCase();
+   console.log(searchString);
+   let FilteredStudents = students.filter((students) => {
+      return (
+         searchString ||
+       
+      );
+   });
+   console.log(FilteredStudents);
+   showPage(FilteredStudents, 1);
+});
+
+ ***/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
