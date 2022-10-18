@@ -10,3 +10,4 @@ I started with a file that contains information for 42 students, including name,
 
 The application had to work with a list of any number of students, not just with the supplied array of 42 students. The solution needed to be flexible enough to handle arrays of student data of various lengths.
 
+https://coachemup.github.io/Data-Pagination-and-Filtering/
